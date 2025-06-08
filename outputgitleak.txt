@@ -1,0 +1,89 @@
+┌──(damnkrishna㉿kali)-[~]
+└─$ git clone https://github.com/damnkrishna/practise-leak-repo.git
+
+Cloning into 'practise-leak-repo'...
+remote: Enumerating objects: 6, done.
+remote: Counting objects: 100% (6/6), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (6/6), done.
+                                                                                            
+┌──(damnkrishna㉿kali)-[~]
+└─$ gitleaks detect --source=./practise-leak-repo --report-format=json --report-path=gitleaks-report.json
+
+
+    ○
+    │╲
+    │ ○
+    ○ ░
+    ░    gitleaks
+
+3:26PM INF 2 commits scanned.
+3:26PM INF scan completed in 59.3ms
+3:26PM WRN leaks found: 3
+                                                                                            
+┌──(damnkrishna㉿kali)-[~]
+└─$ cat gitleaks-report.json
+[
+ {
+  "Description": "Private Key",
+  "StartLine": 4,
+  "EndLine": 6,
+  "StartColumn": 14,
+  "EndColumn": 25,
+  "Match": "-----BEGIN PRIVATE KEY-----\nMIIBVwIBADANBgkqhkiG9w0BAQEFAASCAT...\n-----END PRIVATE KEY----",
+  "Secret": "-----BEGIN PRIVATE KEY-----\nMIIBVwIBADANBgkqhkiG9w0BAQEFAASCAT...\n-----END PRIVATE KEY----",
+  "File": "secrets.txt",
+  "SymlinkFile": "",
+  "Commit": "651ab1f70d47c9e89d8e7807c375d3decf0ee8ef",
+  "Entropy": 4.308508,
+  "Author": "Krishna Gupta",
+  "Email": "166896931+damnkrishna@users.noreply.github.com",
+  "Date": "2025-06-08T09:54:30Z",
+  "Message": "Create secrets.txt",
+  "Tags": [],
+  "RuleID": "private-key",
+  "Fingerprint": "651ab1f70d47c9e89d8e7807c375d3decf0ee8ef:secrets.txt:private-key:4"
+ },
+ {
+  "Description": "AWS",
+  "StartLine": 3,
+  "EndLine": 3,
+  "StartColumn": 20,
+  "EndColumn": 39,
+  "Match": "AKIAIOSFODNN7EXAMPLE",
+  "Secret": "AKIAIOSFODNN7EXAMPLE",
+  "File": "secrets.txt",
+  "SymlinkFile": "",
+  "Commit": "651ab1f70d47c9e89d8e7807c375d3decf0ee8ef",
+  "Entropy": 3.6841838,
+  "Author": "Krishna Gupta",
+  "Email": "166896931+damnkrishna@users.noreply.github.com",
+  "Date": "2025-06-08T09:54:30Z",
+  "Message": "Create secrets.txt",
+  "Tags": [],
+  "RuleID": "aws-access-token",
+  "Fingerprint": "651ab1f70d47c9e89d8e7807c375d3decf0ee8ef:secrets.txt:aws-access-token:3"
+ },
+ {
+  "Description": "Generic API Key",
+  "StartLine": 1,
+  "EndLine": 2,
+  "StartColumn": 1,
+  "EndColumn": 1,
+  "Match": "api_key=ABCD-1234-SECRET",
+  "Secret": "ABCD-1234-SECRET",
+  "File": "secrets.txt",
+  "SymlinkFile": "",
+  "Commit": "651ab1f70d47c9e89d8e7807c375d3decf0ee8ef",
+  "Entropy": 3.625,
+  "Author": "Krishna Gupta",
+  "Email": "166896931+damnkrishna@users.noreply.github.com",
+  "Date": "2025-06-08T09:54:30Z",
+  "Message": "Create secrets.txt",
+  "Tags": [],
+  "RuleID": "generic-api-key",
+  "Fingerprint": "651ab1f70d47c9e89d8e7807c375d3decf0ee8ef:secrets.txt:generic-api-key:1"
+ }
+]
+      
