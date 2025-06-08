@@ -76,3 +76,4 @@ security-leak-scanner/
 ## **Blog**
 
 A detailed blog post covering project details, setup, and key learnings will be published soon.
+https://github.com/damnkrishna/CyberGaurd-j/blob/61bff2e1ad83dafba2b96f7655f858331a98b777/project-blog/Repo-Leak-scanner.md
