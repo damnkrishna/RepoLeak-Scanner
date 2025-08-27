@@ -1,4 +1,4 @@
-# Security Leak Scanner
+# Security Leak-Scanner
 
 A Python-based tool to scan Git repositories for secret leaks using **TruffleHog** and **Gitleaks**. Supports both local repositories and remote GitHub URLs, providing a clear summary of detected leaks.
 
